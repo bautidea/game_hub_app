@@ -9,4 +9,4 @@ Used technologies and tools:
 
 - TypeScript
 - Vite @4.0.1
-- <a href='https://chakra-ui.com/' target='_blank'>Chakra UI</a>-> I decided to use this library to style the app because it give us a bunch of beautiful and reusable React components, i can get to the style i want with minimal customization.
+- [Chakra UI](https://chakra-ui.com/)-> I decided to use this library to style the app because it give us a bunch of beautiful and reusable React components, i can get to the style i want with minimal customization.
