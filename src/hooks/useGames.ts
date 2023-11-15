@@ -7,7 +7,7 @@ import { CanceledError } from 'axios';
 // Check responses on -->https://api.rawg.io/docs/#operation/games_list
 
 // Interface that represents our platform objects.
-interface Platform {
+export interface Platform {
   id: number;
   slug: string;
   name: string;
