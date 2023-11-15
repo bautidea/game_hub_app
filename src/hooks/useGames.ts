@@ -4,12 +4,24 @@ import { CanceledError } from 'axios';
 
 // Creating a custom hook to make HTTP request.
 
+// Check responses on -->https://api.rawg.io/docs/#operation/games_list
+
+// Interface that represents our platform objects.
+interface Platform {
+  id: number;
+  slug: string;
+  name: string;
+}
+
 // Interface that represents the fetched games, only grabbing the properties
 // that are of use to the project.
 export interface Game {
   id: number;
   name: string;
   background_image: string;
+  // -> Here each element in the array is a object with name platform with a property '.platform',
+  // that has the Platform interface, so its like this [ { platform : { id, name, slug } } ]
+  platforms: { platform: Platform }[];
 }
 
 // Interface that represents the object we are obtaining when executing the .get() method.
