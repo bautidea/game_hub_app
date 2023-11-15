@@ -6,9 +6,10 @@ import { CanceledError } from 'axios';
 
 // Interface that represents the fetched games, only grabbing the properties
 // that are of use to the project.
-interface Game {
+export interface Game {
   id: number;
   name: string;
+  background_image: string;
 }
 
 // Interface that represents the object we are obtaining when executing the .get() method.
