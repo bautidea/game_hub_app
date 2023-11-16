@@ -22,6 +22,7 @@ export interface Game {
   // -> Here each element in the array is a object with name platform with a property '.platform',
   // that has the Platform interface, so its like this [ { platform : { id, name, slug } } ]
   parent_platforms: { platform: Platform }[];
+  metacritic: number;
 }
 
 // Interface that represents the object we are obtaining when executing the .get() method.
