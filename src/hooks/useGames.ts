@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import apiClient from '../services/api-client';
 import { CanceledError } from 'axios';
 
-// Creating a custom hook to make HTTP request.
+// Creating a custom hook to make HTTP request for getting the games.
 
 // Check responses on -->https://api.rawg.io/docs/#operation/games_list
 
