@@ -47,11 +47,6 @@ const PlatformIconList = ({ platforms }: Props) => {
     <HStack marginY={1}>
       {platforms.map((platform) => (
         <>
-          {console.log(
-            platform.slug
-              .replace(/ps-vita/g, 'playstation')
-              .replace(/((\d)*|(-)\w*)*/g, '')
-          )}
           <Icon as={iconMapper[platform.slug]} color="gray.500" />
         </>
       ))}
