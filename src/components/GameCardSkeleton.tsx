@@ -8,7 +8,7 @@ const GameCardSkeleton = () => {
         In this card we are going to have an skeleton, is like a placeholder 
         for an img that has been loaded.
       */}
-      <Skeleton height={'200px'}>
+      <Skeleton height={'400px'}>
         <CardBody>
           <SkeletonText />
         </CardBody>
