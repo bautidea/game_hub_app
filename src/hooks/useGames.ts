@@ -1,4 +1,5 @@
 import useData from './useData';
+import { Genre } from './useGenres';
 
 // Creating a custom hook to make HTTP request for getting the games.
 
@@ -23,6 +24,11 @@ export interface Game {
   metacritic: number;
 }
 
-const useGames = () => useData<Game>('/games');
+// As second parameter we are passing the selected genre as a query string parameter,
+// 'params' is a property of Axios RequestConfigObject.
+const useGames = (selectedGenres: Genre | null) =>
+  useData<Game>('/games', { params: { genres: selectedGenres?.id } }, [
+    selectedGenres?.id,
+  ]);
 
 export default useGames;

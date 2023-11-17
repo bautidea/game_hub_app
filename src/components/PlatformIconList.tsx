@@ -46,9 +46,11 @@ const PlatformIconList = ({ platforms }: Props) => {
     // Using HStack to display icons horizontally.
     <HStack marginY={1}>
       {platforms.map((platform) => (
-        <>
-          <Icon as={iconMapper[platform.slug]} color="gray.500" />
-        </>
+        <Icon
+          key={platform.id}
+          as={iconMapper[platform.slug]}
+          color="gray.500"
+        />
       ))}
     </HStack>
   );
