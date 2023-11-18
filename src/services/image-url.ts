@@ -3,6 +3,7 @@
 // app, so we are going to reduce the size of the img.
 
 const getCroppedImageUrl = (url: string) => {
+  if (!url) return '';
   // Here we are obtaining the index of where the word 'media/' is located
   // the size of the image can be adjusted, for example here
   // https://media.rawg.io/media/games/942/9424d6bb763dc38d9378b488603c87fa.jpg
