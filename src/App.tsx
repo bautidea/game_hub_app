@@ -5,10 +5,15 @@ import GenreList from './components/GenreList';
 import { useState } from 'react';
 import { Genre } from './hooks/useGenres';
 import PlatformSelector from './components/PlatformSelector';
+import { Platform } from './hooks/useGames';
 
 function App() {
   // State variable to get the selected genre.
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+  // State variable to ge the selected platforms.
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
+    null
+  );
 
   return (
     // Defining layout of grid with templateAreas --> https://chakra-ui.com/docs/styled-system/responsive-styles
@@ -48,8 +53,14 @@ function App() {
       </Show>
 
       <GridItem area="main">
-        <PlatformSelector />
-        <GameGrid selectedGenre={selectedGenre} />
+        <PlatformSelector
+          selectedPlatform={selectedPlatform}
+          handleSelectPlatform={(platform) => setSelectedPlatform(platform)}
+        />
+        <GameGrid
+          selectedGenre={selectedGenre}
+          selectedPlatform={selectedPlatform}
+        />
       </GridItem>
     </Grid>
   );

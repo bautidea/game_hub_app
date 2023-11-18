@@ -26,9 +26,19 @@ export interface Game {
 
 // As second parameter we are passing the selected genre as a query string parameter,
 // 'params' is a property of Axios RequestConfigObject.
-const useGames = (selectedGenres: Genre | null) =>
-  useData<Game>('/games', { params: { genres: selectedGenres?.id } }, [
-    selectedGenres?.id,
-  ]);
+const useGames = (
+  selectedGenres: Genre | null,
+  selectedPlatform: Platform | null
+) =>
+  useData<Game>(
+    '/games',
+    {
+      params: {
+        genres: selectedGenres?.id,
+        platforms: selectedPlatform?.id,
+      },
+    },
+    [selectedGenres?.id, selectedPlatform?.id]
+  );
 
 export default useGames;
