@@ -5,16 +5,16 @@ import {
   List,
   ListItem,
   Spinner,
-  Text,
 } from '@chakra-ui/react';
 import useGenres, { Genre } from '../hooks/useGenres';
 import getCroppedImageUrl from '../services/image-url';
 
 interface Prop {
   handleSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({ handleSelectGenre }: Prop) => {
+const GenreList = ({ handleSelectGenre, selectedGenre }: Prop) => {
   const { data, error, isLoading } = useGenres();
 
   if (error) return null;
@@ -32,6 +32,7 @@ const GenreList = ({ handleSelectGenre }: Prop) => {
               src={getCroppedImageUrl(genre.image_background)}
             />
             <Button
+              fontWeight={genre.id === selectedGenre?.id ? 'bold' : 'normal'}
               fontSize="lg"
               variant="link"
               onClick={() => handleSelectGenre(genre)}
