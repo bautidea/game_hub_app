@@ -7,13 +7,20 @@ import { Genre } from './hooks/useGenres';
 import PlatformSelector from './components/PlatformSelector';
 import { Platform } from './hooks/useGames';
 
+// We should pack related variables inside an object, here we are using a
+// Query Object Patter, its a query object that contains all the information
+// we need to query the games.
+export interface GameQuery {
+  genre: Genre | null;
+  platform: Platform | null;
+}
+
 function App() {
-  // State variable to get the selected genre.
-  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-  // State variable to ge the selected platforms.
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
-    null
-  );
+  // We initialize it to an empty object, not '(null)' because we will always have
+  // the query object, but the properties might be null.
+  // We are initializing as GameQuery because if not the TS compiler wont let us assign
+  // an empty object to GameQuery object.
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
   return (
     // Defining layout of grid with templateAreas --> https://chakra-ui.com/docs/styled-system/responsive-styles
@@ -46,21 +53,20 @@ function App() {
       <Show above="lg">
         <GridItem area="aside" paddingX={5}>
           <GenreList
-            selectedGenre={selectedGenre}
-            handleSelectGenre={(genre) => setSelectedGenre(genre)}
+            selectedGenre={gameQuery.genre}
+            handleSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
           />
         </GridItem>
       </Show>
 
       <GridItem area="main">
         <PlatformSelector
-          selectedPlatform={selectedPlatform}
-          handleSelectPlatform={(platform) => setSelectedPlatform(platform)}
+          selectedPlatform={gameQuery.platform}
+          handleSelectPlatform={(platform) =>
+            setGameQuery({ ...gameQuery, platform })
+          }
         />
-        <GameGrid
-          selectedGenre={selectedGenre}
-          selectedPlatform={selectedPlatform}
-        />
+        <GameGrid gameQuery={gameQuery} />
       </GridItem>
     </Grid>
   );
