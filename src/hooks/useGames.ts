@@ -23,6 +23,8 @@ export interface Game {
   // that has the Platform interface, so its like this [ { platform : { id, name, slug } } ]
   parent_platforms: { platform: Platform }[];
   metacritic: number;
+  // Im going to render the value that we obtain in rating_top (from 1 to 5) with emojis
+  rating_top: number;
 }
 
 // As second parameter we are passing the selected genre as a query string parameter,
