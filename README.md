@@ -3,7 +3,7 @@
 This is a mini version of [RAWG](https://rawg.io/) website, a popular video game discovery platform.
 
 <div align='center'>
-<img src='./src/assets/game_hub_img.png' />
+<img src='./src/assets/game_hub_img.png' >
 </div>
 
 In the first part of this project i developed many useful features, for example, we can toggle between dark and light mode, search for games, filter by genre, as the games are loading we can see loading skeletons, we can filter by platform,
